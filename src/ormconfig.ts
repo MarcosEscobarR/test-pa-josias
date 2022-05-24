@@ -1,5 +1,5 @@
-import { ConnectionOptions } from 'typeorm';
-const config: ConnectionOptions = {
+import { ConnectionOptions, DataSource } from "typeorm";
+const config : ConnectionOptions = {
   type: 'postgres',
   host: 'localhost',
   port: 5432,
