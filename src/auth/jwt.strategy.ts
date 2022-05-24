@@ -1,6 +1,6 @@
 import { PassportStrategy } from '@nestjs/passport';
 import { ExtractJwt, Strategy } from 'passport-jwt';
-import { JwtPayload } from './models/JwtPayload';
+import { JwtPayload } from '../users/models/JwtPayload';
 import { Injectable } from '@nestjs/common';
 
 @Injectable()
@@ -11,9 +11,5 @@ export class JwtStrategy extends PassportStrategy(Strategy, 'jwt') {
       ignoreExpiration: false,
       secretOrKey: process.env.ACCESS_SECRET,
     });
-  }
-
-  async validate(payload: JwtPayload) {
-    return { rol: payload.role };
   }
 }

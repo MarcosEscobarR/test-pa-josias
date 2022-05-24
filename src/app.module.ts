@@ -5,6 +5,8 @@ import { UsersModule } from './users/users.module';
 import { TaskModule } from './task/task.module';
 import ormconfig from './ormconfig';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { AuthModule } from './auth/auth.module';
+import { Connection } from 'typeorm';
 
 @Module({
   imports: [
@@ -15,8 +17,11 @@ import { TypeOrmModule } from '@nestjs/typeorm';
     }),
     UsersModule,
     TaskModule,
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule {}
+export class AppModule {
+  constructor(private connection: Connection) {}
+}
