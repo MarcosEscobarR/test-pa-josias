@@ -7,9 +7,11 @@ import ormconfig from './ormconfig';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AuthModule } from './auth/auth.module';
 import { Connection } from 'typeorm';
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
   imports: [
+    ConfigModule.forRoot(),
     TypeOrmModule.forRoot({
       ...ormconfig,
       keepConnectionAlive: true,
